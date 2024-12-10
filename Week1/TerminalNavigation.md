@@ -19,7 +19,7 @@ mkdir <name of dir to make>
 ```
 ### Remove a dir
 ```
-rmdir <Name of dir to delete>
+rmdir <name of dir to delete>
 ```
 ### Create copy of file
 ```
@@ -28,4 +28,8 @@ cp <source file> <new location>
 ### Moves file
 ```
 mv <source file> <new location>
+```
+### Make file
+```
+touch <name of file to make>
 ```
