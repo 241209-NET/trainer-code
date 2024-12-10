@@ -5,14 +5,24 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
-        string input = Console.ReadLine() ?? "Hello";
+        //string input = Console.ReadLine() ?? "Hello";
 
         /*
         string? input = Console.ReadLine();
         if(input == null) input = "Hello";
         */
 
-        Console.WriteLine(input?.Trim());
+        //Console.WriteLine(input?.Trim());
+
+        List<string> myStringList = [];
+
+        myStringList.Add("Hello");
+        myStringList.Add("Hello");
+        myStringList.Add("Hello");
+        myStringList.Add("Hello");
+        myStringList.Add("Hello");
+
+        foreach(var s in myStringList) Console.WriteLine(s);
 
         //Whole Numbers
         int n1 = 0; //32 bit
