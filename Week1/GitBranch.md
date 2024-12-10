@@ -1,3 +1,4 @@
+```
 git pull
 
 git checkout -b <name of branch>
@@ -8,3 +9,4 @@ git commit -m "My MSG"
 git push
 
 git pull
+```
