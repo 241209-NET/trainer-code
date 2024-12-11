@@ -15,7 +15,8 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Enter a number.");
-        string input = Console.ReadLine()!;
+        string? input = Console.ReadLine();
+
 
         if(String.IsNullOrWhiteSpace(input)){
             input = "1";
