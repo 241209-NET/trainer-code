@@ -13,4 +13,9 @@ public static class Utilities
     {
         carList.Add(c);
     }
+
+    public static string WelcomeBanner()
+    {
+        throw new NotImplementedException();
+    }
 }

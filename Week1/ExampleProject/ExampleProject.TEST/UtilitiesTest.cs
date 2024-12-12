@@ -55,7 +55,7 @@ public class UtilitiesTest
     }
 
     [Fact]
-    public void TestName()
+    public void AddCarAddsCarIntoList()
     {
         //Arrange
         List<Car> carList = [
@@ -74,5 +74,14 @@ public class UtilitiesTest
         //Assert
         Assert.Contains(c, carList);
         Assert.Contains(carList, c => c.Make.Equals("Masserati"));
+    }
+
+    [Fact]
+    public void WelcomeBannerThrowsException()
+    {
+        //Arrange
+        //Act
+        //Assert
+        Assert.Throws<NotImplementedException>(() => Utilities.WelcomeBanner());
     }
 }
