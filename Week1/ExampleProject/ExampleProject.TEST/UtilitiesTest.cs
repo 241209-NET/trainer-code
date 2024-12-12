@@ -75,5 +75,4 @@ public class UtilitiesTest
         Assert.Contains(c, carList);
         Assert.Contains(carList, c => c.Make.Equals("Masserati"));
     }
-
 }
