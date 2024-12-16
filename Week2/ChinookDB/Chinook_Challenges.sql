@@ -2,7 +2,9 @@
 
 -- BASIC CHALLENGES
 -- List all customers (full name, customer id, and country) who are not in the USA
-    
+    SELECT FirstName + ' ' + LastName AS 'Full Name', customerid, country
+    FROM Customer
+    WHERE country != 'USA';
 -- List all customers from Brazil
     
 -- List all sales agents
@@ -29,6 +31,10 @@
 -- Show all invoices of customers from brazil (mailing address not billing)
 
 -- Show all invoices together with the name of the sales agent for each one
+Select i.InvoiceId, i.InvoiceDate, c.CustomerId, c.FirstName + ' ' + c.LastName 'Customer', e.FirstName + ' ' + e.LastName 'Sales Agent'
+From Invoice i
+JOIN Customer c ON i.CustomerId = c.CustomerId
+JOIN Employee e ON c.SupportRepId = e.EmployeeId
 
 -- Which sales agent made the most sales in 2009?
 
