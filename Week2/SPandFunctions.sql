@@ -35,7 +35,7 @@ EXEC GetOwnersAndPets @TopNum = 3;
 GO
 
 --Once run it is stored in the DB and can be called back
-CREATE FUNCTION CalculateTax2
+CREATE FUNCTION CalculateTax
 (
     @Amount DECIMAL(10,2),
     @Tax DECIMAL(10,2)
