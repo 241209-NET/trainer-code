@@ -12,6 +12,7 @@ JOIN Pets p ON o.id = p.ownerID;
 --Go to make batch statements
 GO
 
+--Once run it is stored in the DB and can be called back
 CREATE PROCEDURE GetOwnersAndPets
     @TopNum INT
 AS
@@ -33,6 +34,7 @@ EXEC GetOwnersAndPets @TopNum = 3;
 --Go to make batch statements
 GO
 
+--Once run it is stored in the DB and can be called back
 CREATE FUNCTION CalculateTax2
 (
     @Amount DECIMAL(10,2),
@@ -49,6 +51,7 @@ END
 --Go to make batch statements
 GO
 
+--Calling back the function defined above
 SELECT dbo.CalculateTax(100, .03) TotalAmount;
 
 -- Function vs Procedure
