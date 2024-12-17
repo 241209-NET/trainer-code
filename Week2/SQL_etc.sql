@@ -73,3 +73,7 @@ WHERE EMP = 'Kung';
 -- Indexes are used automatically by the SQL Server query optimizer to enhance query performance. 
 
 -- You do not need to explicitly use indexes in your queries
+
+--If you want to optimize filtering and sorting on a specific column in a specific table.
+CREATE NONCLUSTERED INDEX MyNCIndex
+ON Employees(name);
