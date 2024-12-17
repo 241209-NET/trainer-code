@@ -24,7 +24,6 @@
 -- Microsoft Ref on Isolation Levels: https://learn.microsoft.com/en-us/sql/odbc/reference/develop-app/transaction-isolation-levels?view=sql-server-ver16
 
 
-
 --Setup bank accounts and two accounts for Kung and Nyla
 CREATE TABLE BankAccount(
     id int PRIMARY KEY IDENTITY,
@@ -36,13 +35,40 @@ INSERT INTO BankAccount VALUES
 ('Kung', 500),
 ('Nyla', 500);
 
+SELECT * FROM BankAccount;
+SELECT SUM(balance) Total FROM BankAccount;
+
+--Transfer money from Kung -> Nyla without using transactions
 UPDATE BankAccount
 SET balance -= 100
 WHERE name = 'Kung';
 
 --Simulate a problem
---WAITFOR DELAY '00:00:02';
+--WAITFOR DELAY '00:00:05';
 
 UPDATE BankAccount
 SET balance += 100
 WHERE name = 'Nyla';
+
+--Wrap the transfer in transaction to prevent inconsistent state
+BEGIN TRANSACTION
+BEGIN TRY
+    UPDATE BankAccount
+    SET balance -= 100
+    WHERE name = 'Kung';
+
+    --Simulate a problem
+    --PRINT 'Waiting for no reason!';
+    --WAITFOR DELAY '00:00:05';
+    --SELECT 10/0;
+
+    UPDATE BankAccount
+    SET balance += 100
+    WHERE name = 'Nyla';
+    COMMIT;
+END TRY
+BEGIN CATCH
+    PRINT 'Rolling Back...';
+    SELECT ERROR_MESSAGE();
+    ROLLBACK;
+END CATCH
