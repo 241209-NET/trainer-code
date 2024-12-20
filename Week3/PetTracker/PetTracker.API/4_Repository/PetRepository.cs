@@ -25,7 +25,7 @@ public class PetRepository : IPetRepository
 
     public Pet? GetPetById(int id)
     {
-        return _petContext.Pets.FirstOrDefault(p => p.Id == id);
+        return _petContext.Pets.Find(id);
     }
 
     public void DeletePetById(int id)
@@ -37,6 +37,8 @@ public class PetRepository : IPetRepository
 
     public IEnumerable<Pet> GetPetByName(string name)
     {
-        throw new NotImplementedException();
+       throw new NotImplementedException();
+       
+       //var pet = _petContext.Pets.Where(p => p.Name.Equals(name)).ToList();
     }
 }

@@ -52,4 +52,7 @@ dotnet ef database update <name of migration>
 ```bash
 dotnet ef database update 0
 ```
-
+## To use mock for testing, in the test project run
+```bash
+dotnet add package Moq
+```

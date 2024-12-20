@@ -19,7 +19,6 @@ public class PetService : IPetService
         return _petRepository.CreateNewPet(newPet);
     }
 
-
     public Pet? GetPetById(int id)
     {
         if(id < 1) return null;
