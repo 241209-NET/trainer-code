@@ -9,4 +9,6 @@ public partial class PetContext : DbContext
     public PetContext(DbContextOptions<PetContext> options) : base(options){}
 
     public virtual DbSet<Pet> Pets { get; set; }
+    public virtual DbSet<Owner> Owners { get; set; }
+
 }

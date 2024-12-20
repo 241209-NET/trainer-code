@@ -9,19 +9,29 @@ public class PetService : IPetService
 
     public PetService(IPetRepository petRepository) => _petRepository = petRepository;
 
-    public Pet CreateNewPet(Pet newPet)
-    {
-        return _petRepository.CreateNewPet(newPet);
-    }
-
     public IEnumerable<Pet> GetAllPets()
     {
         return _petRepository.GetAllPets();
     }
 
+    public Pet CreateNewPet(Pet newPet)
+    {
+        return _petRepository.CreateNewPet(newPet);
+    }
+
+
     public Pet? GetPetById(int id)
     {
-        throw new NotImplementedException();
+        if(id < 1) return null;
+        return _petRepository.GetPetById(id);
+    }
+
+    public Pet? DeletePetById(int id)
+    {
+        var pet = GetPetById(id);
+        if(pet is not null) _petRepository.DeletePetById(id);
+        return pet;
+
     }
 
     public IEnumerable<Pet> GetPetByName(string name)

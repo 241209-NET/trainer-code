@@ -29,10 +29,24 @@ public class PetController : ControllerBase
         return Ok(pet);
     }
 
-    [HttpDelete]
-    public IActionResult DeletePet(string name)
+    [HttpGet("{id}")]
+    public IActionResult GetPetById(int id)
     {
-        throw new NotImplementedException();
+        var findPet = _petService.GetPetById(id);
+
+        if(findPet is null) return NotFound();
+        
+        return Ok(findPet);
+    }
+
+    [HttpDelete]
+    public IActionResult DeletePet(int id)
+    {
+        var deletePet = _petService.DeletePetById(id);
+
+        if(deletePet is null) return NotFound();
+
+        return Ok(deletePet);
     }
 
     // [HttpDelete]

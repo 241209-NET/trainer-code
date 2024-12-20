@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetTracker.API.Data;
 
@@ -11,9 +12,11 @@ using PetTracker.API.Data;
 namespace PetTracker.API.Migrations
 {
     [DbContext(typeof(PetContext))]
-    partial class PetContextModelSnapshot : ModelSnapshot
+    [Migration("20241220200200_AddOwnerClass")]
+    partial class AddOwnerClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,21 +24,6 @@ namespace PetTracker.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("OwnerPet", b =>
-                {
-                    b.Property<int>("OwnersId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PetsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("OwnersId", "PetsId");
-
-                    b.HasIndex("PetsId");
-
-                    b.ToTable("OwnerPet");
-                });
 
             modelBuilder.Entity("PetTracker.API.Model.Owner", b =>
                 {
@@ -68,27 +56,31 @@ namespace PetTracker.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OwnerId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("OwnerId");
+
                     b.ToTable("Pets");
                 });
 
-            modelBuilder.Entity("OwnerPet", b =>
+            modelBuilder.Entity("PetTracker.API.Model.Pet", b =>
                 {
-                    b.HasOne("PetTracker.API.Model.Owner", null)
-                        .WithMany()
-                        .HasForeignKey("OwnersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("PetTracker.API.Model.Owner", "Owner")
+                        .WithMany("Pets")
+                        .HasForeignKey("OwnerId");
 
-                    b.HasOne("PetTracker.API.Model.Pet", null)
-                        .WithMany()
-                        .HasForeignKey("PetsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Owner");
+                });
+
+            modelBuilder.Entity("PetTracker.API.Model.Owner", b =>
+                {
+                    b.Navigation("Pets");
                 });
 #pragma warning restore 612, 618
         }

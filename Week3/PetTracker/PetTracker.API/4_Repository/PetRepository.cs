@@ -9,7 +9,12 @@ public class PetRepository : IPetRepository
     private readonly PetContext _petContext;
 
     public PetRepository(PetContext petContext) => _petContext = petContext;
-    
+
+    public IEnumerable<Pet> GetAllPets()
+    {
+        return _petContext.Pets.ToList();
+    }
+
     public Pet CreateNewPet(Pet newPet)
     {
         //Insert into Pets Values (newPet)
@@ -18,14 +23,16 @@ public class PetRepository : IPetRepository
         return newPet;
     }
 
-    public IEnumerable<Pet> GetAllPets()
-    {
-        return _petContext.Pets.ToList();
-    }
-
     public Pet? GetPetById(int id)
     {
-        throw new NotImplementedException();
+        return _petContext.Pets.FirstOrDefault(p => p.Id == id);
+    }
+
+    public void DeletePetById(int id)
+    {
+        var pet = GetPetById(id);
+        _petContext.Pets.Remove(pet!);
+        _petContext.SaveChanges();
     }
 
     public IEnumerable<Pet> GetPetByName(string name)
