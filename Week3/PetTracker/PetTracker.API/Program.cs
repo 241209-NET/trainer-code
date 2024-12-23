@@ -16,10 +16,18 @@ builder.Services.AddSwaggerGen();
 
 //Dependency Inject the proper services
 builder.Services.AddScoped<IPetService, PetService>();
+builder.Services.AddScoped<IOwnerService, OwnerService>();
+
+//Dependency Inject the proper repositories
 builder.Services.AddScoped<IPetRepository, PetRepository>();
+builder.Services.AddScoped<IOwnerRepository, OwnerRepository>();
 
 //Add our controllers
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
 
 var app = builder.Build();
 

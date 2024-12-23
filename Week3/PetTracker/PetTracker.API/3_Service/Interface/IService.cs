@@ -10,3 +10,9 @@ public interface IPetService
     IEnumerable<Pet> GetPetByName(string name);
     Pet? DeletePetById(int id);
 }
+
+public interface IOwnerService
+{
+    IEnumerable<Owner> GetAllOwners();
+    Owner CreateNewOwner(Owner newOwner);
+}

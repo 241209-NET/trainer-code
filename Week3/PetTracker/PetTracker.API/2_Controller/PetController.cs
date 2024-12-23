@@ -49,6 +49,18 @@ public class PetController : ControllerBase
         return Ok(deletePet);
     }
 
+    [HttpPut]
+    public IActionResult UpdatePet(Pet updatePet)
+    {
+        var pet = _petService.GetPetById(updatePet.Id);
+
+        //pet does not exist
+        if(pet is null) return BadRequest();
+
+        //update pet
+        return Ok();
+    }
+
     // [HttpDelete]
     // public IActionResult DeletePet(int id)
     // {

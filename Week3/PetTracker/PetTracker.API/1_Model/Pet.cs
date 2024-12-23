@@ -1,4 +1,6 @@
 
+using System.Text.Json.Serialization;
+
 namespace PetTracker.API.Model;
 
 public class Pet

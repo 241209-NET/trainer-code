@@ -11,3 +11,10 @@ public interface IPetRepository
     IEnumerable<Pet> GetPetByName(string name);
     void DeletePetById(int id);    
 }
+
+public interface IOwnerRepository
+{
+    //CRUD
+    IEnumerable<Owner> GetAllOwners();
+    Owner CreateNewOwner(Owner newOwner);    
+}
