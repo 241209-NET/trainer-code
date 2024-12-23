@@ -40,8 +40,7 @@ public class PetRepository : IPetRepository
 
     public IEnumerable<Pet> GetPetByName(string name)
     {
-       throw new NotImplementedException();
-       
-       //var pet = _petContext.Pets.Where(p => p.Name.Equals(name)).ToList();
+       var petList = _petContext.Pets.Where(p => p.Name.Contains(name)).ToList();
+       return petList;
     }
 }

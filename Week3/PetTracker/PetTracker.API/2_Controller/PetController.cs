@@ -61,6 +61,13 @@ public class PetController : ControllerBase
         return Ok();
     }
 
+    [HttpGet("name/{name}")]
+    public IActionResult GetPetByName(string name)
+    {
+        var petList = _petService.GetPetByName(name);
+        return Ok(petList);
+    }
+
     // [HttpDelete]
     // public IActionResult DeletePet(int id)
     // {

@@ -35,7 +35,10 @@ public class PetService : IPetService
 
     public IEnumerable<Pet> GetPetByName(string name)
     {
-        throw new NotImplementedException();
+        if(String.IsNullOrEmpty(name)) return [];
+        
+        var petList = _petRepository.GetPetByName(name);
+        return petList;
     }
 
 }
