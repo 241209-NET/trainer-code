@@ -16,5 +16,7 @@ public interface IOwnerRepository
 {
     //CRUD
     IEnumerable<Owner> GetAllOwners();
-    Owner CreateNewOwner(Owner newOwner);    
+    Owner? GetOwnerById(int id);
+    Owner CreateNewOwner(Owner newOwner);
+    Owner DeleteById(Owner deleteOwner);    
 }

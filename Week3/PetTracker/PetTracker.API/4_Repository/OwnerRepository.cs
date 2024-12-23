@@ -12,7 +12,16 @@ public class OwnerRepository : IOwnerRepository
 
     public IEnumerable<Owner> GetAllOwners()
     {
-        return _petContext.Owners.ToList();
+        return _petContext.Owners
+            .Include(o => o.Pets)
+            .ToList();
+    }
+
+    public Owner? GetOwnerById(int id)
+    {
+        return _petContext.Owners
+            .Include(o => o.Pets)
+            .FirstOrDefault(o => o.Id == id);
     }
 
     public Owner CreateNewOwner(Owner newOwner)
@@ -20,5 +29,14 @@ public class OwnerRepository : IOwnerRepository
         _petContext.Owners.Add(newOwner);
         _petContext.SaveChanges();
         return newOwner;
+    }
+
+    public Owner DeleteById(Owner deleteOwner)
+    {
+        //var owner = _petContext.Owners.Find(id);
+        var dO = _petContext.Owners.Remove(deleteOwner);
+        _petContext.SaveChanges();
+        Console.WriteLine("HELLO" + dO);
+        return deleteOwner;
     }
 }

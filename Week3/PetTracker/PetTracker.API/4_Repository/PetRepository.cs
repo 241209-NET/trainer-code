@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using PetTracker.API.Data;
 using PetTracker.API.Model;
 
@@ -12,7 +13,9 @@ public class PetRepository : IPetRepository
 
     public IEnumerable<Pet> GetAllPets()
     {
-        return _petContext.Pets.ToList();
+        return _petContext.Pets
+            .Include(p => p.Owners)
+            .ToList();
     }
 
     public Pet CreateNewPet(Pet newPet)

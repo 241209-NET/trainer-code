@@ -1,3 +1,4 @@
+using PetTracker.API.DTO;
 using PetTracker.API.Model;
 
 namespace PetTracker.API.Service;
@@ -14,5 +15,7 @@ public interface IPetService
 public interface IOwnerService
 {
     IEnumerable<Owner> GetAllOwners();
-    Owner CreateNewOwner(Owner newOwner);
+    Owner? GetOwnerById(int id);
+    Owner CreateNewOwner(OwnerInDTO newOwner);
+    Owner DeleteOwnerById(int id);
 }
