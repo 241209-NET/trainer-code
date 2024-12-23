@@ -56,3 +56,19 @@ dotnet ef database update 0
 ```bash
 dotnet add package Moq
 ```
+
+## To generate test coverage
+```bash
+dotnet test --collect: "XPlat Code Coverage"
+```
+
+## To generate html human friendly report
+## Find the code coverage folder GUID
+```bash
+reportgenerator -reports:".\TestResults\<guid>\coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html 
+```
+
+## To filter out stuff you don't want
+```bash
+reportgenerator -reports:".\TestResults\<guid>\coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html classfilters:"+Sample.API.Service.*;+some more stuff;-don't include this"
+```
