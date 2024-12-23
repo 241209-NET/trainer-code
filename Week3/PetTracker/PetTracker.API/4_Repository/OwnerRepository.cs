@@ -34,9 +34,8 @@ public class OwnerRepository : IOwnerRepository
     public Owner DeleteById(Owner deleteOwner)
     {
         //var owner = _petContext.Owners.Find(id);
-        var dO = _petContext.Owners.Remove(deleteOwner);
+        _petContext.Owners.Remove(deleteOwner);
         _petContext.SaveChanges();
-        Console.WriteLine("HELLO" + dO);
         return deleteOwner;
     }
 }
