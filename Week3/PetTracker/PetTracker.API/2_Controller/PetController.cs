@@ -23,10 +23,10 @@ public class PetController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult CreateNewPet(Pet newPet)
+    public async Task<IActionResult> CreateNewPet(Pet newPet)
     {
         var pet = _petService.CreateNewPet(newPet);
-        return Ok(pet);
+        return Ok(await pet);
     }
 
     [HttpGet("{id}")]

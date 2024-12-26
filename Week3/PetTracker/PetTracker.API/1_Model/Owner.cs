@@ -7,6 +7,8 @@ public class Owner
     public int Id { get; set;}
     public required string Name { get; set; }
     public string? Address { get; set; }
+    [EmailAddress]
+    public string? Email { get; set; }
 
     public List<Pet> Pets { get; set; } = [];
 }

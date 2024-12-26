@@ -18,16 +18,11 @@ public class PetRepository : IPetRepository
             .ToList();
     }
 
-    public Pet CreateNewPet(Pet newPet)
+    public async Task<Pet> CreateNewPet(Pet newPet)
     {
         //Insert into Pets Values (newPet)
-        _petContext.Pets.Add(newPet);
-        _petContext.SaveChanges();
-
-        //Synchronous VS Asynchronous
-        _petContext.SaveChangesAsync();
-
-
+        await _petContext.Pets.AddAsync(newPet);
+        await _petContext.SaveChangesAsync();
         return newPet;
     }
 

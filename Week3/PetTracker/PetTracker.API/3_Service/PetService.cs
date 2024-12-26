@@ -14,9 +14,9 @@ public class PetService : IPetService
         return _petRepository.GetAllPets();
     }
 
-    public Pet CreateNewPet(Pet newPet)
+    public async Task<Pet> CreateNewPet(Pet newPet)
     {
-        return _petRepository.CreateNewPet(newPet);
+        return await _petRepository.CreateNewPet(newPet);
     }
 
     public Pet? GetPetById(int id)

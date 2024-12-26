@@ -17,7 +17,6 @@ public class OwnerController : ControllerBase
     public IActionResult GetAllOwners()
     {
         var ownerList = _ownerService.GetAllOwners();
-        Thread.Sleep(3000);
         return Ok(ownerList);
     }
 
