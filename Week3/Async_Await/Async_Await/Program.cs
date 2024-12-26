@@ -15,9 +15,9 @@ class Program
 
         await Task.WhenAll(t1, t2, t3);
         
-        Console.WriteLine(t1.Result);
-        Console.WriteLine(t2.Result);
-        Console.WriteLine(t3.Result);
+        Console.WriteLine(await t1);
+        Console.WriteLine(await t2);
+        Console.WriteLine(await t3);
 
         sw.Stop();
         Console.WriteLine(sw.Elapsed);
