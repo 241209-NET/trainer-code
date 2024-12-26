@@ -18,7 +18,7 @@ public class PetController : ControllerBase
     [HttpGet]
     public IActionResult GetAllPets()
     {
-        var petList = _petService.GetAllPets();        
+        var petList = _petService.GetAllPets();    
         return Ok(petList);
     }
 

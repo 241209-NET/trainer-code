@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace PetTracker.API.Model;
 
 public class Owner

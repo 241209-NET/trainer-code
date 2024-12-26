@@ -23,6 +23,11 @@ public class PetRepository : IPetRepository
         //Insert into Pets Values (newPet)
         _petContext.Pets.Add(newPet);
         _petContext.SaveChanges();
+
+        //Synchronous VS Asynchronous
+        _petContext.SaveChangesAsync();
+
+
         return newPet;
     }
 

@@ -1,4 +1,5 @@
 //Data transfer object
+using System.ComponentModel.DataAnnotations;
 using PetTracker.API.Model;
 
 namespace PetTracker.API.DTO;
