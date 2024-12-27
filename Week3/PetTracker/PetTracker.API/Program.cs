@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PetTracker.API.Data;
+using PetTracker.API.Model;
 using PetTracker.API.Repository;
 using PetTracker.API.Service;
 
@@ -21,6 +22,9 @@ builder.Services.AddScoped<IOwnerService, OwnerService>();
 //Dependency Inject the proper repositories
 builder.Services.AddScoped<IPetRepository, PetRepository>();
 builder.Services.AddScoped<IOwnerRepository, OwnerRepository>();
+
+//Add automapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 //Add our controllers
 builder.Services.AddControllers()

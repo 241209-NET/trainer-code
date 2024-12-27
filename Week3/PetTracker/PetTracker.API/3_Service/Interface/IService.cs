@@ -6,7 +6,7 @@ namespace PetTracker.API.Service;
 public interface IPetService
 {
     Task<Pet> CreateNewPet(Pet newPet);
-    IEnumerable<Pet> GetAllPets();
+    IEnumerable<PetOutDTO> GetAllPets();
     Pet? GetPetById(int id);
     IEnumerable<Pet> GetPetByName(string name);
     Pet? DeletePetById(int id);

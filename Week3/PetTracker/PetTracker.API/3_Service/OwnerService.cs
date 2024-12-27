@@ -29,8 +29,7 @@ public class OwnerService : IOwnerService
 
     public Owner CreateNewOwner(OwnerInDTO newOwner)
     {
-        Owner fromDTO = newOwner.DTOToOwner();
-        Owner fromDTO2 = Utilities.DTOToObject(newOwner);
+        Owner fromDTO = Utilities.DTOToObject(newOwner);
 
         var owner = _ownerRepository.CreateNewOwner(fromDTO);
         return owner;
