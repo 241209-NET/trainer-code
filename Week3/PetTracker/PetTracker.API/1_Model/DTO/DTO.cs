@@ -20,5 +20,5 @@ public class PetOutDTO
     public string? Name { get; set; }
     public DateOnly? Birthday { get; set; }
 
-    List<OwnerInDTO> Owners = [];
+    public List<OwnerInDTO> OwnersDTO = [];
 }

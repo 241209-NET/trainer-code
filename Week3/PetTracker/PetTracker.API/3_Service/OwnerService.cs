@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Http.HttpResults;
 using PetTracker.API.DTO;
 using PetTracker.API.Model;
@@ -10,8 +11,13 @@ namespace PetTracker.API.Service;
 public class OwnerService : IOwnerService
 {
     private readonly IOwnerRepository _ownerRepository;
+    private readonly IMapper _mapper;
 
-    public OwnerService(IOwnerRepository ownerRepository) => _ownerRepository = ownerRepository;
+    public OwnerService(IOwnerRepository ownerRepository, IMapper mapper)
+    {
+        _ownerRepository = ownerRepository;
+        _mapper = mapper;
+    } 
     
     public IEnumerable<Owner> GetAllOwners()
     {
@@ -29,7 +35,7 @@ public class OwnerService : IOwnerService
 
     public Owner CreateNewOwner(OwnerInDTO newOwner)
     {
-        Owner fromDTO = Utilities.DTOToObject(newOwner);
+        Owner fromDTO = _mapper.Map<Owner>(newOwner);
 
         var owner = _ownerRepository.CreateNewOwner(fromDTO);
         return owner;
