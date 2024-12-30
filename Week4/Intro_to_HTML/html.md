@@ -1,5 +1,3 @@
-# HTML
-
 ## HTML
 - Hypertext Markup Language
 - Provides the structure for a webpage
