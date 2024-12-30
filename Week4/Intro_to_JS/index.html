@@ -18,10 +18,31 @@
      <!-- Inline Style -->
     <h1>Kung Lo</h1>
     
-    <button>Button</button>
+    <!-- on click event handler -->
+    <button onclick="myAlert()">Alert Button</button>
+
+    <!-- bubbling -->
+    <div id="first-div" onclick="divHandler1()" style="border: solid blue;">
+        <button onclick="buttonHandler1(event)" style="border: solid red;">Button1</button>
+    </div>
+
+    <!-- no bubbling after stopPropagation -->
+    <div id="second-div" onclick="divHandler2()" style="border: solid blue;">
+        <button onclick="buttonHandler2(event)" style="border: solid red;">Button1</button>
+    </div>
+
+    <!-- Bubbling can be good? -->
+    <div id="second-div" onclick="bubbling(event)" style="border: solid blue;">
+        <button style="border: solid red;">Button1</button>
+        <button style="border: solid red;">Button2</button>
+        <button style="border: solid red;">Button3</button>
+    </div>
+
+    <button id="my-btn" onclick="createNewCat()">Button2</button>
+    
 
     <!-- Lists -->
-    <ul>
+    <ul id="cat-list">
         <li>Bacon</li>
         <li>Egg</li>
         <li>Cheese</li>
@@ -111,5 +132,6 @@
     </table>
     
     <a href="https://google.com">GO TO GOOGLE2</a>
+    <script src="index.js"></script>
 </body>
 </html>
