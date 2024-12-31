@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Pets</title>
+</head>
+<body>
+    <form id="owner-form">
+        <label for="name">Name</label>               
+        <input type="text" name="name" id="name" required>
+
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" required>
+
+        <input type="submit">
+    </form>
+
+
+    <br>
+    <br>    
+    <button>Get Owners</button> 
+    <button id="getpet-btn" onclick="getallpets()">Get Pets</button>     
+
+    <script src="index.js"></script>
+</body>
+</html>
