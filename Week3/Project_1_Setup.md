@@ -70,5 +70,5 @@ reportgenerator -reports:".\TestResults\<guid>\coverage.cobertura.xml" -targetdi
 
 ## To filter out stuff you don't want
 ```bash
-reportgenerator -reports:".\TestResults\<guid>\coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html classfilters:"+Sample.API.Service.*;+some more stuff;-don't include this"
+reportgenerator -reports:".\TestResults\<guid>\coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html -classfilters:"+Sample.API.Service.*;+some more stuff;-don't include this"
 ```
