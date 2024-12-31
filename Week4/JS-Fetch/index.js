@@ -53,5 +53,34 @@ async function getallpets()
     })
 
     document.body.appendChild(ul);
+}
 
+async function postOwners(event)
+{
+    const owner = {
+        'name' : event.target.elements['name'].value,
+        'address' : event.target.elements['address'].value
+    }
+
+    try {
+        const res = await fetch('http://localhost:5200/api/Owner', {
+            method: 'POST',
+            body: JSON.stringify(owner),
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        })
+
+        if(!res.ok) {
+            console.log('Not ok', res);
+            alert('Something Went Wrong!');
+        }
+        else{
+            const resJson = await res.json();
+            alert('Owner Created!');
+        }
+    } catch (err)
+    {
+        console.error('ERROR', err)
+    }
 }
