@@ -1,9 +1,15 @@
-
+import React from "react"
+import Counter from "./components/Counter"
 
 function App() {
 
   return (
-    <h1>React Demo App!</h1>
+    <div>
+      <h1>React Demo App!</h1>
+
+      <Counter></Counter>
+
+    </div>
 
   )
 }
