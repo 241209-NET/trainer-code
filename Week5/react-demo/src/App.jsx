@@ -1,5 +1,6 @@
 import React from "react"
 import Counter from "./components/Counter"
+import ItemList from "./components/ItemList"
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
       <h1>React Demo App!</h1>
 
       <Counter></Counter>
+      <ItemList></ItemList>
 
     </div>
 
