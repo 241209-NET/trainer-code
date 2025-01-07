@@ -30,9 +30,7 @@ function App() {
 
           <Counter></Counter>
           <ItemList></ItemList>
-          <button onClick={toggleTheme}>
-            Switch to {theme === 'dark' ? 'Light' : 'Dark'} Theme
-          </button>
+          
         </div>
       </ThemeContext.Provider>
 
