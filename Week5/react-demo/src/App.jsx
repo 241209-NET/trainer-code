@@ -1,6 +1,8 @@
 import React, { useState, createContext } from "react"
 import Counter from "./components/Counter"
 import ItemList from "./components/ItemList"
+import NavBar from "./components/NavBar"
+import { BrowserRouter, Route, Routes  } from "react-router-dom"
 import './App.css'
 
 // To use Context, we need to use createContext
@@ -25,13 +27,22 @@ function App() {
   return (
       
       <ThemeContext.Provider value={{ theme, toggleTheme}}>
-        <div className={theme}>
-          <h1>React Demo App!</h1>
+        <BrowserRouter>
+          <div className={theme}>
+            <NavBar />
+            <h1>React Demo App!</h1>
+            <Routes>
 
-          <Counter></Counter>
-          <ItemList></ItemList>
-          
-        </div>
+              <Route path='/counter' Component={Counter}/>
+              <Route path='/itemlist' Component={ItemList}/>
+              {/*                 
+              <Counter></Counter>
+              <ItemList></ItemList> */}
+
+            </Routes>
+            
+          </div>
+        </BrowserRouter>
       </ThemeContext.Provider>
 
   )
