@@ -9,6 +9,8 @@ function NavBar() {
             <li><Link to='/counter'>Counter</Link></li>
             {/* Link to my ItemList component */}
             <li><Link to='/itemlist'>ItemList</Link></li>
+            {/* Link to my PokemonSearch component */}
+            <li><Link to='/pokesearch'>Pokemon Search</Link></li>
         </ul>
     </nav>
   )
