@@ -84,6 +84,7 @@
 - What does useEffect do?
 - What does setState do?
 - what is axios?
-- what is jest?
 - what is shallow rendering?
-- what is mocking (conceptual)?
+- what is jest? *
+- what is mocking (conceptual)? *
+* JS framework for testing
