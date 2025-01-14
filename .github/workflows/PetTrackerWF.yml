@@ -7,13 +7,13 @@ on:
       - dev
        feat* #feat-{some-name}
     paths:
-      - Week3/PatTracker/**
+      - Week3/PetTracker/**
   pull_request:
     branches: 
       - dev
         feat*
     paths:
-      - Week3/PatTracker/**
+      - Week3/PetTracker/**
   workflow_dispatch: # a manual trigger, so I get a button to press to start the pipeline if I want to!
 
 jobs: # the job is the set of tasks that will be hosted and run on the same agent
@@ -40,5 +40,5 @@ jobs: # the job is the set of tasks that will be hosted and run on the same agen
         context: ./Week3/PetTracker/
         file: ./Week3/PetTracker/Dockerfile
         push: true
-        tags: index.docker.io/hawkinsr/pettracker:latest, index.docker.io/hawkinsr/pattracker:${{ github.sha }}
+        tags: index.docker.io/hawkinsr/pettracker:latest, index.docker.io/hawkinsr/pettracker:${{ github.sha }}
         
